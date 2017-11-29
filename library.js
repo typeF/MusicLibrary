@@ -42,13 +42,11 @@ var library = {
 // p02: Other Playlist - 1 tracks
 
 var printPlaylists = function () {
-// console.log(library.playlists[1]);
 var numTracks = 0;
 
 for (var playlistID in library.playlists){
   var playlist = library.playlists[playlistID];
-  // console.log(playlistID);
-  // console.log(playlist.name);
+
   console.log(playlistID + " " + playlist.name + " - " + playlist.tracks.length + " tracks");
   }
 }
@@ -77,22 +75,11 @@ var printPlaylist = function (playlistId) {
   trackSelection = library.playlists[playlistSelect];
   console.log(trackSelection.id + ": " + trackSelection.name + " - " + trackSelection.tracks.length + " tracks");
   trackId = trackSelection.tracks;
-  //console.log(trackId);
   for (var i = 0; i < trackId.length; i++){
     var track = trackId[i];
     var trackInfo = library.tracks[track];
     console.log(track + ": " + trackInfo.name + " by " + trackInfo.artist + " (" + trackInfo.album + ")");
   }
-
-  // library.tracks[trackid].all other info
-// print out play list ID, name, # of tracks
-// iterate through and obtain all teh track numbers
-// using the track number generate the track information
-  // for (var tracks in trackSelection){
-  //   var trackNum = trackSelection.name;
-  //   console.log(tracks + ": " + trackNum.name + " by " + trackNum.artist + " (" + trackNum.album + ")");
-  // }
-
 }
 printPlaylist("p01");
 
@@ -102,14 +89,6 @@ var addTrackToPlaylist = function (trackId, playlistId) {
     playlistAdd = playlistId;
     trackAdd = trackId;
     library.playlists[playlistAdd].tracks.push(trackAdd);
-    //console.log(library.playlists[playlistAdd].tracks);
-/* get playlistID length, find last position, assign
-   new track ID to last position
-   add track 3 to playlist 1
-*/
-
-
-//
 }
 
 addTrackToPlaylist("t01", "p01");
@@ -126,8 +105,6 @@ var uid = function() {
 
 var addTrack = function (name, artist, album) {
   libtracks = library.tracks;
-console.log(libtracks[2]);
-// trackNum =
 library.tracks[uid()] = {
   id: uid(),
   name: name,
@@ -184,11 +161,3 @@ var printSearchResults = function(query) {
   }
 }
 printSearchResults("James");
-
-/*
-for (var tracks in library.tracks){
-    var trackNum = library.tracks[tracks];
-    console.log(tracks + ": " + trackNum.name + " by " + trackNum.artist + " (" + trackNum.album + ")");
-  }
-
-  */
